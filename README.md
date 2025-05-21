@@ -1,6 +1,6 @@
 # Customer Segmentation & Lifetime Value Prediction
 
-This project applies RFM segmentation and machine learning to predict Customer Lifetime Value (CLV) based on customer sales data from the UCI Online Retail dataset. It also includes a Streamlit app for real-time prediction.
+In this project I applied RFM segmentation and machine learning to predict Customer Lifetime Value (CLV) based on customer sales data from the UCI Online Retail dataset. It also includes a Streamlit app for real-time prediction.
 
 ---
 
@@ -42,7 +42,53 @@ These features were created to capture both behavioral patterns and spending hab
 - **Target**: Log-transformed Monetary (CLV), inverse transformed with `np.expm1()`  
 - **Performance**:  
   - RMSE: ~4000  
-  - R²: 0.84  
+  - R²: 0.84
+    
+## Visualizations & Insights
+
+### 1. Distribution of RFM Features
+![RFM Features](plots/RFMdist.JPG)
+
+This chart shows the raw distributions of **Recency**, **Frequency**, and **Monetary**. Most customers made recent purchases (low Recency), purchased infrequently (low Frequency), and spent relatively little (low Monetary). These right-skewed patterns justify segmentation and modeling.
+
+---
+
+### 2. Distribution of Engineered Features (Log Scaled)
+![Engineered Features](plots/EngineeredFeatureLog.png)
+
+To improve model performance, I engineered certain features such as **AvgOrderValue**, **DaysActive**, and **Quantity**. After log transformation, the distributions are more normalized, which helps the model better capture behavioral patterns and reduce the impact of outliers.
+
+---
+
+### 3. XGBoost Feature Importance
+![Feature Importance](plots/FeatureImportance.JPG)
+
+This plot shows which features contributed most to predicting CLV.  
+- **AvgOrderValue** and **Frequency** were the strongest predictors.  
+- **Cluster** had minimal influence, confirming that behavioral features are more powerful than segmentation alone.
+
+---
+
+### 4. Actual vs Predicted CLV (Sample Table)
+![Actual vs Predicted](plots/ActualVsPredicted.JPG)
+
+A sample comparison of actual vs. predicted customer lifetime value. Most predictions closely align with actual values, reinforcing the model's efficiency. These outputs can help a business identify undervalued customers with potential long-term value.
+
+---
+
+### 5. Average CLV by Cluster
+![CLV by Cluster](plots/AvgCLVbyCluster.JPG)
+
+This bar chart displays the average CLV across customer clusters.  
+**Cluster 2** clearly contains the highest-value customers.
+
+---
+
+### 6. Confusion Matrix – High vs Low CLV
+![Confusion Matrix](plots/HighLowCM.JPG)
+
+To evaluate strategic accuracy, I converted CLV into binary classes (high vs low, based on the median) and used a confusion matrix.  
+The model correctly classified **~99%** of customers.
 
 ---
 
