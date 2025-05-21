@@ -1,6 +1,6 @@
 # Customer Segmentation & Lifetime Value Prediction
 
-In this project I applied RFM segmentation and machine learning to predict Customer Lifetime Value (CLV) based on customer sales data from the UCI Online Retail dataset. It also includes a Streamlit app for real-time prediction.
+In this project, I applied RFM segmentation and machine learning to predict Customer Lifetime Value (CLV) based on customer sales data from the UCI Online Retail dataset. It also includes a Streamlit app for real-time prediction.
 
 ---
 
@@ -32,7 +32,7 @@ All features used in the model were engineered from raw transactional data to re
 - **DaysActive**: Number of days between first and last purchase
 - **Quantity**: Total number of items purchased
 
-These features were created to capture both behavioral patterns and spending habits, which significantly improved model performance.
+These features were created to capture behavioral patterns and spending habits, which greatly improved model performance.
 
 ---
 
@@ -54,14 +54,14 @@ This chart shows the raw distributions of **Recency**, **Frequency**, and **Mone
 ---
 
 ### 2. Distribution of Engineered Features (Log Scaled)
-![Engineered Features](plots/EngineeredFeatureLog.png)
+![Engineered Features](plots/EngineeredFeaturesLog.jpeg)
 
-To improve model performance, I engineered certain features such as **AvgOrderValue**, **DaysActive**, and **Quantity**. After log transformation, the distributions are more normalized, which helps the model better capture behavioral patterns and reduce the impact of outliers.
+I engineered features such as **AvgOrderValue**, **DaysActive**, and **Quantity** to improve model performance. After log transformation, the distributions are more normalized, which helps the model better capture behavioral patterns and reduce the impact of outliers.
 
 ---
 
 ### 3. XGBoost Feature Importance
-![Feature Importance](plots/FeatureImportance.JPG)
+<img src="plots/FeatureImportance.JPG" width="500" height="300"/>
 
 This plot shows which features contributed most to predicting CLV.  
 - **AvgOrderValue** and **Frequency** were the strongest predictors.  
@@ -70,24 +70,24 @@ This plot shows which features contributed most to predicting CLV.
 ---
 
 ### 4. Actual vs Predicted CLV (Sample Table)
-![Actual vs Predicted](plots/ActualVsPredicted.JPG)
+<img src="plots/ActualVsPredict.JPG" width="300" height="300"/>
 
 A sample comparison of actual vs. predicted customer lifetime value. Most predictions closely align with actual values, reinforcing the model's efficiency. These outputs can help a business identify undervalued customers with potential long-term value.
 
 ---
 
 ### 5. Average CLV by Cluster
-![CLV by Cluster](plots/AvgCLVbyCluster.JPG)
+<img src="plots/AvgCLVbyCluster.JPG" width="500" height="300"/>
 
 This bar chart displays the average CLV across customer clusters.  
-**Cluster 2** clearly contains the highest-value customers.
+**Cluster 2** contains the highest-value customers.
 
 ---
 
 ### 6. Confusion Matrix – High vs Low CLV
-![Confusion Matrix](plots/HighLowCM.JPG)
+<img src="plots/HighLowCM.JPG" width="500" height="300"/>
 
-To evaluate strategic accuracy, I converted CLV into binary classes (high vs low, based on the median) and used a confusion matrix.  
+I converted CLV into binary classes (high vs low, based on the median) and used a confusion matrix to evaluate accuracy.  
 The model correctly classified **~99%** of customers.
 
 ---
@@ -130,7 +130,7 @@ The model explains 84% of the variation in customer lifetime value, which is pro
 ---
 
 ## Streamlit App
-
+Click [Here](https://customer-segmentation-and-clv-kcs4cscwrzgvvyjgzsf64l.streamlit.app/) for the web app
 ### `clv_predictor_form_app.py`
 - Allows user to enter Recency, Frequency, Cluster, etc.  
 - Predicts CLV instantly using the trained model  
