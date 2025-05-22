@@ -130,11 +130,13 @@ The model explains 84% of the variation in customer lifetime value, which is pro
 ---
 
 ## Streamlit App
-Click [Here](https://customer-segmentation-and-clv-kcs4cscwrzgvvyjgzsf64l.streamlit.app/) for the web app
+[Click Here](https://customer-segmentation-and-clv-kcs4cscwrzgvvyjgzsf64l.streamlit.app/) for the web app
 ### `clv_predictor_form_app.py`
 - Allows user to enter Recency, Frequency, Cluster, etc.  
 - Predicts CLV instantly using the trained model  
 
-To run locally:
-```bash
-streamlit run clv_predictor_form_app.py
+## How to Run
+1. Clone the repo
+2. Install requirements: `pip install -r requirements.txt`
+3. Open the notebooks in order (EDA → Segmentation → CLV Prediction)
+4. Optional: Launch the Streamlit app with `streamlit run clv_predictor_form_app.py`
